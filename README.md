@@ -27,14 +27,8 @@ Egg's sequelize plugin.
 ## Install
 
 ```bash
-$ npm i --save egg-sequelize
- 
-# And one of the following:
-$ npm install --save pg pg-hstore
-$ npm install --save mysql # For both mysql and mariadb dialects
-$ npm install --save tedious # MSSQL
+$ npm i egg-security
 ```
-
 
 ## Usage & configuration
 
@@ -46,8 +40,7 @@ exports.sequelize = {
   host: 'localhost',
   username: 'root',
   password: '',
-  database: 'test',
-  dialect: 'mysql', // support: mysql, mariadb, postgres, mssql
+  database: 'test'
 };
 ```
 
@@ -55,7 +48,7 @@ More documents please refer to [Sequelize.js](http://sequelize.readthedocs.io/en
 
 ## models
 
-Please set sequelize models under `app/model`
+Please set sequelize models under `app/models`
 
 ## Examples
 
@@ -81,7 +74,7 @@ module.exports = function (sequelize) {
 'use strict'
 
 module.exports = function* () {
-  this.body = yield this.model.test.find({
+  this.body = yield this.models.test.find({
     'name':'aaa'
   })
 }
